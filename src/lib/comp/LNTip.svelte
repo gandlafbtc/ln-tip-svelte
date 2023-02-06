@@ -278,7 +278,7 @@
 	{:else}
 		<div class="w-32 h-32 z-10 flex items-center justify-center ">
 			<div
-				class="tooltip tooltip-secondary z-10"
+				class="tooltip tooltip-open tooltip-secondary z-10"
 				data-tip={amount ? amount + ' sats' : 'hold to donate'}
 			>
 				<button class="w-16 h-16" on:click={handleClick} on:mousedown={handleCharge}>
