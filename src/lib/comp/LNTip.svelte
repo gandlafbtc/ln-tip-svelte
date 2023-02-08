@@ -31,7 +31,7 @@
 		isLoadingInvoice = false;
 		isConfirm = false;
 		hasBeenCopied = false;
-        isConfirm = false
+		isConfirm = false;
 	};
 
 	const handleConfirm = () => {
@@ -104,9 +104,9 @@
 				{#if lninvoice}
 					{#if isConfirm}
 						<div class="flex flex-col items-center justify-center gap-2 h-full">
-                            <div>
-                                <p >Thank You!</p>
-                            </div>
+							<div>
+								<p>Thank You!</p>
+							</div>
 							<div class="btn btn-success btn-square">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -262,11 +262,11 @@
 				<div class="card-actions justify-end items-end">
 					<button class="btn btn-outline btn-sm" on:click={handleCancel}>cancel</button>
 					{#if lninvoice}
-                        {#if isConfirm}
-						<button class="btn btn-success btn-sm" on:click={handleCancel}>Ok</button>
-                        {:else}
-						<button class="btn btn-success btn-sm" on:click={handleConfirm}>Confirm</button>
-                        {/if}
+						{#if isConfirm}
+							<button class="btn btn-success btn-sm" on:click={handleCancel}>Ok</button>
+						{:else}
+							<button class="btn btn-success btn-sm" on:click={handleConfirm}>Confirm</button>
+						{/if}
 					{:else if isLoadingInvoice}
 						<button class="btn btn-square loading btn-sm" />
 					{:else}
@@ -281,7 +281,13 @@
 				class="tooltip tooltip-open tooltip-secondary z-10"
 				data-tip={amount ? amount + ' sats' : 'hold to donate'}
 			>
-				<button class="w-16 h-16" on:click={handleClick} on:mousedown={handleCharge}>
+				<button
+					class="w-16 h-16"
+					on:mouseup={handleClick}
+					on:mousedown={handleCharge}
+					on:touchstart={handleCharge}
+					on:touchend={handleClick}
+				>
 					<Lottie lottiePath="/lightning.json" isAutoplay={false} isLoop={false} />
 				</button>
 			</div>
