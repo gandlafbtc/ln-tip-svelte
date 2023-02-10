@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../../app.css';
+	import './app.css';
 	import Lottie from './Lottie.svelte';
 	import { browser } from '$app/environment';
 	import { requestInvoice } from 'lnurl-pay/dist/umd/index';
@@ -42,7 +42,7 @@
 			try {
 				isLoadingInvoice = true;
 				const { invoice, params, successAction, validatePreimage } = await requestInvoice({
-					lnUrlOrAddress: 'gandlaf21@stacker.news',
+					lnUrlOrAddress: lnaddress,
 					tokens: amount
 				});
 				console.log(params);
